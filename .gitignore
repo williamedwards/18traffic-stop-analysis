@@ -1,0 +1,8 @@
+bin/
+etc/
+include/
+lib/
+share/
+.ipynb_checkpoints/
+pip-selfcheck.json
+requirements.txt
