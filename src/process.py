@@ -16,7 +16,7 @@ def bin_ages(age_indices, row):
             row[index] = "{}s".format(age)
         except ValueError:
             pass
-    return(",".join(row))
+    return(row)
 
 def main():
     in_file = open(IN_FILE_NAME, "r")
@@ -37,10 +37,11 @@ def main():
     sample_indices = set(random.sample(range(ROW_TOTAL), SAMPLE_SIZE))
 
     reader = csv.reader(in_file)
+    writer = csv.writer(out_file)
     for j, row in enumerate(reader):
         if j not in sample_indices:
             continue
-        out_file.write(bin_ages(age_indices, row) + "\n")
+        writer.writerow(bin_ages(age_indices, row))
     print(len(sample_indices))
 
     in_file.close()
